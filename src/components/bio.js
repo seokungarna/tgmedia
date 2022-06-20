@@ -34,21 +34,33 @@ const Bio = ({person}) => {
   let personz = ''
   if (person) personz = person
   else personz = data.site.siteMetadata?.author.name
-  let pic = '../images/profile-pic.png'
-    if (personz =="Jonas Karlsson") pic = '../images/jonas.png'
-    else if (personz =="Torsten Grönwall") pic = '../images/torsten.png'
   return (
     <div className="bio">
-      <StaticImage
+      { personz === "Jonas Karlsson" && (
+        <StaticImage
         className="bio-avatar"
         layout="fixed"
         formats={["auto", "webp", "avif"]}
-        src={pic}
+        src='../images/jonas.jpg'
         width={50}
         height={50}
         quality={95}
         alt="Profile picture"
       />
+  )}
+   { personz === "Torsten Grönwall" && (
+        <StaticImage
+        className="bio-avatar"
+        layout="fixed"
+        formats={["auto", "webp", "avif"]}
+        src='../images/torsten.jpg'
+        width={50}
+        height={50}
+        quality={95}
+        alt="Profile picture"
+      />
+  )}
+      
       {personz && (
         <p>
          Skriven av <strong>{personz}</strong>
