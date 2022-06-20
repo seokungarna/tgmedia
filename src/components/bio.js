@@ -34,14 +34,16 @@ const Bio = ({person}) => {
   let personz = ''
   if (person) personz = person
   else personz = data.site.siteMetadata?.author.name
-
+  let pic = '../images/profile-pic.png'
+    if (personz =="Jonas Karlsson") pic = '../images/jonas.png'
+    else if (personz =="Torsten Grönwall") pic = '../images/torsten.png'
   return (
     <div className="bio">
       <StaticImage
         className="bio-avatar"
         layout="fixed"
         formats={["auto", "webp", "avif"]}
-        src="../images/profile-pic.png"
+        src={pic}
         width={50}
         height={50}
         quality={95}
